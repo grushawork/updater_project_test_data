@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="universal_robot">
+    <xacro:include filename="./additions/inertial_macros.xacro"/>
+    <xacro:include filename="./additions/material.xacro"/>
+
+    <xacro:arg name="sim_mode" default="true"/>
+
+    <xacro:property name="use_lidar" value="true"/> 
+    <xacro:property name="use_lidar_1" value="true"/> 
+    <xacro:property name="use_lidar_2" value="true"/> 
+    <xacro:property name="use_lidar_3" value="true"/> 
+    <xacro:property name="use_lidar_4" value="false"/> 
+
+    <xacro:property name="use_camera" value="true"/> 
+    <xacro:property name="use_camera_1" value="true"/> 
+    <xacro:property name="use_camera_2" value="true"/> 
+    <xacro:property name="use_camera_3" value="true"/> 
+    <xacro:property name="use_camera_4" value="true"/> 
+    
+    <xacro:property name="use_ros2_control" value="false"/>
+    <xacro:property name="drive_type" value="differential"/> 
+
+    <xacro:property name="chassis_head" value="0.473"/>
+    <xacro:property name="chassis_tail" value="0.473"/>
+    <xacro:property name="chassis_width" value="0.685"/>
+    <xacro:property name="chassis_height" value="0.3"/>
+    <xacro:property name="chassis_z" value="0.102"/>
+    <xacro:property name="left_wheel_x" value="0.0"/>
+    <xacro:property name="left_wheel_y" value="0.3675"/>
+    <xacro:property name="left_wheel_z" value="0.102"/>
+    <xacro:property name="left_wheel_roll" value="${-pi/2}"/>
+    <xacro:property name="left_wheel_pitch" value="0.0"/>
+    <xacro:property name="left_wheel_yaw" value="0.0"/>
+    <xacro:property name="left_wheel_radius" value="0.102"/>
+    <xacro:property name="left_wheel_thickness" value="0.05"/>
+    <xacro:property name="left_wheel_sign" value="1"/>
+    <xacro:property name="right_wheel_x" value="0.0"/>
+    <xacro:property name="right_wheel_y" value="-0.3675"/>
+    <xacro:property name="right_wheel_z" value="0.102"/>
+    <xacro:property name="right_wheel_roll" value="${pi/2}"/>
+    <xacro:property name="right_wheel_pitch" value="0.0"/>
+    <xacro:property name="right_wheel_yaw" value="0.0"/>
+    <xacro:property name="right_wheel_radius" value="0.102"/>
+    <xacro:property name="right_wheel_thickness" value="0.05"/>
+    <xacro:property name="right_wheel_sign" value="-1"/>
+    <xacro:property name="lidar_1_x" value="0.45"/>
+    <xacro:property name="lidar_1_y" value="0.3"/>
+    <xacro:property name="lidar_1_z" value="0.41"/>
+    <xacro:property name="lidar_1_roll" value="0.0"/>
+    <xacro:property name="lidar_1_pitch" value="0.0"/>
+    <xacro:property name="lidar_1_yaw" value="${pi/4}"/>
+    <xacro:property name="lidar_2_x" value="0.45"/>
+    <xacro:property name="lidar_2_y" value="-0.3"/>
+    <xacro:property name="lidar_2_z" value="0.41"/>
+    <xacro:property name="lidar_2_roll" value="0.0"/>
+    <xacro:property name="lidar_2_pitch" value="0.0"/>
+    <xacro:property name="lidar_2_yaw" value="${-pi/4}"/>
+    <xacro:property name="lidar_3_x" value="-0.45"/>
+    <xacro:property name="lidar_3_y" value="-0.3"/>
+    <xacro:property name="lidar_3_z" value="0.41"/>
+    <xacro:property name="lidar_3_roll" value="0.0"/>
+    <xacro:property name="lidar_3_pitch" value="0.0"/>
+    <xacro:property name="lidar_3_yaw" value="${-3*pi/4}"/>
+    <xacro:property name="lidar_4_x" value="-0.45"/>
+    <xacro:property name="lidar_4_y" value="0.3"/>
+    <xacro:property name="lidar_4_z" value="0.41"/>
+    <xacro:property name="lidar_4_roll" value="0.0"/>
+    <xacro:property name="lidar_4_pitch" value="0.0"/>
+    <xacro:property name="lidar_4_yaw" value="${3*pi/4}"/>
+    <xacro:property name="camera_1_x" value="0.0"/>
+    <xacro:property name="camera_1_y" value="0.0"/>
+    <xacro:property name="camera_1_z" value="0.25"/>
+    <xacro:property name="camera_1_roll" value="0.0"/>
+    <xacro:property name="camera_1_pitch" value="${pi/2}"/>
+    <xacro:property name="camera_1_yaw" value="0.0"/>
+    <xacro:property name="camera_2_x" value="0.0"/>
+    <xacro:property name="camera_2_y" value="0.0"/>
+    <xacro:property name="camera_2_z" value="0.35"/>
+    <xacro:property name="camera_2_roll" value="0.0"/>
+    <xacro:property name="camera_2_pitch" value="${-pi/2}"/>
+    <xacro:property name="camera_2_yaw" value="0.0"/>
+    <xacro:property name="camera_3_x" value="0.0"/>
+    <xacro:property name="camera_3_y" value="-0.343"/>
+    <xacro:property name="camera_3_z" value="0.252"/>
+    <xacro:property name="camera_3_roll" value="0.0"/>
+    <xacro:property name="camera_3_pitch" value="0.0"/>
+    <xacro:property name="camera_3_yaw" value="${-pi/2}"/>
+    <xacro:property name="camera_4_x" value="0.0"/>
+    <xacro:property name="camera_4_y" value="0.343"/>
+    <xacro:property name="camera_4_z" value="0.252"/>
+    <xacro:property name="camera_4_roll" value="0.0"/>
+    <xacro:property name="camera_4_pitch" value="0.0"/>
+    <xacro:property name="camera_4_yaw" value="${pi/2}"/>
+
+    <!-- BASE LINK -->
+    <link name="base_link"/>
+    <!-- BASE_FOOTPRINT LINK -->
+    <joint name="base_footprint_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="base_footprint"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+    <link name="base_footprint"/>
+
+    <!-- Включение шасси -->
+    <xacro:include filename="chassis/chassis.xacro"/>
+    <xacro:chassis head="${chassis_head}" tail="${chassis_tail}" width="${chassis_width}" height="${chassis_height}" z="${chassis_z}"/>  <!-- Параметры шасси -->
+
+    <!-- Включение колес -->
+    <xacro:if value="${drive_type == 'differential'}">
+        <!-- Приводные колеса -->
+        <xacro:include filename="wheels/wheel.xacro"/>
+        <xacro:wheel name="left_wheel" x="${left_wheel_x}" y="${left_wheel_y}" z="${left_wheel_z}" roll="${left_wheel_roll}" pitch="${left_wheel_pitch}" yaw="${left_wheel_yaw}" radius="${left_wheel_radius}" thickness="${left_wheel_thickness}" sign="${left_wheel_sign}"/> <!-- Параметры левого колеса -->
+        <xacro:wheel name="right_wheel" x="${right_wheel_x}" y="${right_wheel_y}" z="${right_wheel_z}" roll="${right_wheel_roll}" pitch="${right_wheel_pitch}" yaw="${right_wheel_yaw}" radius="${right_wheel_radius}" thickness="${right_wheel_thickness}" sign="${right_wheel_sign}"/> <!-- Параметры правого колеса -->
+        <!-- Включаем паразитные колеса -->
+        <xacro:include filename="wheels/caster_wheel.xacro"/>
+        <xacro:caster_wheel name="front_left_caster_wheel" x="0.3" y="0.25" z="0.041" radius="0.04"/> <!-- Параметры левого переднего паразитного колеса -->
+        <xacro:caster_wheel name="front_right_caster_wheel" x="0.3" y="-0.25" z="0.041" radius="0.04"/> <!-- Параметры правого переднего паразитного колеса -->
+        <xacro:caster_wheel name="rear_left_caster_wheel" x="-0.3" y="-0.25" z="0.041" radius="0.04"/> <!-- Параметры левого заднего паразитного колеса -->
+        <xacro:caster_wheel name="rear_right_caster_wheel" x="-0.3" y="0.25" z="0.041" radius="0.04"/> <!-- Параметры правого заднего паразитного колеса -->
+    </xacro:if>
+
+    <xacro:if value="${use_lidar}">
+        <xacro:include filename="devices/lidars/lidar.xacro"/>
+        <xacro:if value="${use_lidar_1}">
+            <xacro:lidar name="lidar_1" x="${lidar_1_x}" y="${lidar_1_y}" z="${lidar_1_z}" roll="${lidar_1_roll}" pitch="${lidar_1_pitch}" yaw="${lidar_1_yaw}"/> <!-- Параметры лидара 1-->
+        </xacro:if>
+        <xacro:if value="${use_lidar_2}">
+            <xacro:lidar name="lidar_2" x="${lidar_2_x}" y="${lidar_2_y}" z="${lidar_2_z}" roll="${lidar_2_roll}" pitch="${lidar_2_pitch}" yaw="${lidar_2_yaw}"/> <!-- Параметры лидара 2-->
+        </xacro:if>
+        <xacro:if value="${use_lidar_3}">
+            <xacro:lidar name="lidar_3" x="${lidar_3_x}" y="${lidar_3_y}" z="${lidar_3_z}" roll="${lidar_3_roll}" pitch="${lidar_3_pitch}" yaw="${lidar_3_yaw}"/> <!-- Параметры лидара 3-->
+        </xacro:if>
+        <xacro:if value="${use_lidar_4}">
+            <xacro:lidar name="lidar_4" x="${lidar_4_x}" y="${lidar_4_y}" z="${lidar_4_z}" roll="${lidar_4_roll}" pitch="${lidar_4_pitch}" yaw="${lidar_4_yaw}"/> <!-- Параметры лидара 4-->
+        </xacro:if>
+    </xacro:if>
+
+    <xacro:if value="${use_camera}">
+        <xacro:include filename="devices/cameras/camera.xacro"/>
+        <xacro:if value="${use_camera_1}">
+            <xacro:camera name="camera_1" x="${camera_1_x}" y="${camera_1_y}" z="${camera_1_z}" roll="${camera_1_roll}" pitch="${camera_1_pitch}" yaw="${camera_1_yaw}"/> <!-- Параметры камеры 1 -->
+        </xacro:if>
+        <xacro:if value="${use_camera_2}">
+            <xacro:camera name="camera_2" x="${camera_2_x}" y="${camera_2_y}" z="${camera_2_z}" roll="${camera_2_roll}" pitch="${camera_2_pitch}" yaw="${camera_2_yaw}"/> <!-- Параметры камеры 2-->
+        </xacro:if>
+        <xacro:if value="${use_camera_3}">
+            <xacro:camera name="camera_3" x="${camera_3_x}" y="${camera_3_y}" z="${camera_3_z}" roll="${camera_3_roll}" pitch="${camera_3_pitch}" yaw="${camera_3_yaw}"/> <!-- Параметры камеры 3-->
+        </xacro:if>
+        <xacro:if value="${use_camera_4}">
+            <xacro:camera name="camera_4" x="${camera_4_x}" y="${camera_4_y}" z="${camera_4_z}" roll="${camera_4_roll}" pitch="${camera_4_pitch}" yaw="${camera_4_yaw}"/> <!-- Параметры камеры 4-->
+        </xacro:if>
+    </xacro:if>
+
+    <!-- Включение контроллера движения -->
+    <xacro:if value="$(arg sim_mode)">
+        <xacro:include filename="controller/${drive_type}/ros2_control_sim.xacro"/>
+    </xacro:if>
+    <xacro:unless value="$(arg sim_mode)">
+        <xacro:include filename="controller/${drive_type}/ros2_control.xacro"/>
+    </xacro:unless>
+</robot>

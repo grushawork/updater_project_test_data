@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="universal_robot">
+    <xacro:include filename="./additions/inertial_macros.xacro"/>
+    <xacro:include filename="./additions/material.xacro"/>
+
+    <xacro:arg name="sim_mode" default="true"/>
+
+    <xacro:property name="use_lidar" value="true"/> 
+    <xacro:property name="use_lidar_1" value="true"/> 
+    <xacro:property name="use_lidar_2" value="true"/> 
+    <xacro:property name="use_lidar_3" value="true"/> 
+    <xacro:property name="use_lidar_4" value="false"/> 
+
+    <xacro:property name="use_camera" value="true"/> 
+    <xacro:property name="use_camera_1" value="true"/> 
+    <xacro:property name="use_camera_2" value="true"/> 
+    <xacro:property name="use_camera_3" value="true"/> 
+    <xacro:property name="use_camera_4" value="true"/> 
+    
+    <xacro:property name="use_ros2_control" value="false"/>
+    <xacro:property name="drive_type" value="differential"/> 
+
+    <!-- BASE LINK -->
+    <link name="base_link"/>
+    <!-- BASE_FOOTPRINT LINK -->
+    <joint name="base_footprint_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="base_footprint"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+    <link name="base_footprint"/>
+
+    <!-- Включение шасси -->
+    <xacro:include filename="chassis/chassis.xacro"/>
+    <xacro:chassis head="0.473" tail="0.473" width="0.685" height="0.3" z="0.102"/>  <!-- Параметры шасси -->
+
+    <!-- Включение колес -->
+    <xacro:if value="${drive_type == 'differential'}">
+        <!-- Приводные колеса -->
+        <xacro:include filename="wheels/wheel.xacro"/>
+        <xacro:wheel name="left_wheel" x="0.0" y="0.3675" z="0.102" roll="${-pi/2}" pitch="0.0" yaw="0.0" radius="0.102" thickness="0.05" sign="1"/> <!-- Параметры левого колеса -->
+        <xacro:wheel name="right_wheel" x="0.0" y="-0.3675" z="0.102" roll="${pi/2}" pitch="0.0" yaw="0.0" radius="0.102" thickness="0.05" sign="-1"/> <!-- Параметры правого колеса -->
+        <!-- Включаем паразитные колеса -->
+        <xacro:include filename="wheels/caster_wheel.xacro"/>
+        <xacro:caster_wheel name="front_left_caster_wheel" x="0.3" y="0.25" z="0.041" radius="0.04"/> <!-- Параметры левого переднего паразитного колеса -->
+        <xacro:caster_wheel name="front_right_caster_wheel" x="0.3" y="-0.25" z="0.041" radius="0.04"/> <!-- Параметры правого переднего паразитного колеса -->
+        <xacro:caster_wheel name="rear_left_caster_wheel" x="-0.3" y="-0.25" z="0.041" radius="0.04"/> <!-- Параметры левого заднего паразитного колеса -->
+        <xacro:caster_wheel name="rear_right_caster_wheel" x="-0.3" y="0.25" z="0.041" radius="0.04"/> <!-- Параметры правого заднего паразитного колеса -->
+    </xacro:if>
+
+    <xacro:if value="${use_lidar}">
+        <xacro:include filename="devices/lidars/lidar.xacro"/>
+        <xacro:if value="${use_lidar_1}">
+            <xacro:lidar name="lidar_1" x="0.45" y="0.3" z="0.41" roll="0.0" pitch="0.0" yaw="${pi/4}"/> <!-- Параметры лидара 1-->
+        </xacro:if>
+        <xacro:if value="${use_lidar_2}">
+            <xacro:lidar name="lidar_2" x="0.45" y="-0.3" z="0.41" roll="0.0" pitch="0.0" yaw="${-pi/4}"/> <!-- Параметры лидара 2-->
+        </xacro:if>
+        <xacro:if value="${use_lidar_3}">
+            <xacro:lidar name="lidar_3" x="-0.45" y="-0.3" z="0.41" roll="0.0" pitch="0.0" yaw="${-3*pi/4}"/> <!-- Параметры лидара 3-->
+        </xacro:if>
+        <xacro:if value="${use_lidar_4}">
+            <xacro:lidar name="lidar_4" x="-0.45" y="0.3" z="0.41" roll="0.0" pitch="0.0" yaw="${3*pi/4}"/> <!-- Параметры лидара 4-->
+        </xacro:if>
+    </xacro:if>
+
+    <xacro:if value="${use_camera}">
+        <xacro:include filename="devices/cameras/camera.xacro"/>
+        <xacro:if value="${use_camera_1}">
+            <xacro:camera name="camera_1" x="0.0" y="0.0" z="0.25" roll="0.0" pitch="${pi/2}" yaw="0.0"/> <!-- Параметры камеры 1 -->
+        </xacro:if>
+        <xacro:if value="${use_camera_2}">
+            <xacro:camera name="camera_2" x="0.0" y="0.0" z="0.35" roll="0.0" pitch="${-pi/2}" yaw="0.0"/> <!-- Параметры камеры 2-->
+        </xacro:if>
+        <xacro:if value="${use_camera_3}">
+            <xacro:camera name="camera_3" x="0.0" y="-0.343" z="0.252" roll="0.0" pitch="0.0" yaw="${-pi/2}"/> <!-- Параметры камеры 3-->
+        </xacro:if>
+        <xacro:if value="${use_camera_4}">
+            <xacro:camera name="camera_4" x="0.0" y="0.343" z="0.252" roll="0.0" pitch="0.0" yaw="${pi/2}"/> <!-- Параметры камеры 4-->
+        </xacro:if>
+    </xacro:if>
+
+    <!-- Включение контроллера движения -->
+    <xacro:if value="$(arg sim_mode)">
+        <xacro:include filename="controller/${drive_type}/ros2_control_sim.xacro"/>
+    </xacro:if>
+    <xacro:unless value="$(arg sim_mode)">
+        <xacro:include filename="controller/${drive_type}/ros2_control.xacro"/>
+    </xacro:unless>
+</robot>

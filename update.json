@@ -1,0 +1,22 @@
+{
+    "lidar_1": {
+        "x": "0.2",
+        "y": "0.2",
+        "z": "0.41"
+    },
+    "left_wheel": {
+        "y": "0.3675",
+        "radius" : "0.102"
+    },
+    "right_wheel": {
+        "y": "-0.3675",
+        "radius": "0.102"
+    },
+    "chassis": {
+        "width": "0.8",
+        "nosuchattr": "0"
+    },
+    "nosuchelement": {
+        "yaw": "0"
+    }
+}
