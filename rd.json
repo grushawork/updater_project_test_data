@@ -1,5 +1,6 @@
 {
     "use_lidar": "true",
+    "use_for_slam": "true",
     "use_lidar_1": "true",
     "use_lidar_2": "true",
     "use_lidar_3": "true",
