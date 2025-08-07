@@ -1,14 +1,15 @@
+import json
 from lxml import etree
 
 
 PARSE_FILENAME = '/home/user/dikom_robot_nav_ws/src/dikom_robot_nav/description/robot.urdf.xacro'
-REPLACE_FILENAME = '/home/user/dikom_robot_nav_ws/src/xacro_updater/xacro_updater/robot.urdf.xacro'
+REPLACE_FILENAME = '/home/user/dikom_robot_nav_ws/test/robot.urdf.xacro'
 
 # Live update of current dikom_robot_nav robot description
-REPLACE_FILENAME = PARSE_FILENAME
+# REPLACE_FILENAME = PARSE_FILENAME
 
 # Parse and update test robot description
-# PARSE_FILENAME = REPLACE_FILENAME
+PARSE_FILENAME = REPLACE_FILENAME
 
 INSERT_PROPERTIES_UNDER = '<xacro:property name="drive_type" value="differential"/>'
 
@@ -107,6 +108,8 @@ def replace_values_with_properties(tags_attrs, filename):
 
 if __name__ == '__main__':
     tags_attrs = parse_target_tags_attrs(PARSE_FILENAME, TAGS, ATTRIBUTES)
+
+    print(json.dumps(tags_attrs, indent=4))
 
     properties, properties_strings = formulate_properties(tags_attrs)
     for p in properties_strings:

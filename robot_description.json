@@ -1,0 +1,107 @@
+{
+    "use_lidar": "true",
+    "use_lidar_1": "true",
+    "use_lidar_2": "true",
+    "use_lidar_3": "true",
+    "use_lidar_4": "false",
+    "use_camera": "true",
+    "use_camera_1": "true",
+    "use_camera_2": "true",
+    "use_camera_3": "true",
+    "use_camera_4": "true",
+    "use_ros2_control": "false",
+    "drive_type": "differential",
+    "chassis": {
+        "head": "0.473",
+        "tail": "0.473",
+        "width": "0.685",
+        "height": "0.3",
+        "z": "0.102"
+    },
+    "left_wheel": {
+        "x": "0.0",
+        "y": "0.3675",
+        "z": "0.102",
+        "roll": "${-pi/2}",
+        "pitch": "0.0",
+        "yaw": "0.0",
+        "radius": "0.102",
+        "thickness": "0.05",
+        "sign": "1"
+    },
+    "right_wheel": {
+        "x": "0.0",
+        "y": "-0.3675",
+        "z": "0.102",
+        "roll": "${pi/2}",
+        "pitch": "0.0",
+        "yaw": "0.0",
+        "radius": "0.102",
+        "thickness": "0.05",
+        "sign": "-1"
+    },
+    "lidar_1": {
+        "x": "0.45",
+        "y": "0.3",
+        "z": "0.41",
+        "roll": "0.0",
+        "pitch": "0.0",
+        "yaw": "${pi/4}"
+    },
+    "lidar_2": {
+        "x": "0.45",
+        "y": "-0.3",
+        "z": "0.41",
+        "roll": "0.0",
+        "pitch": "0.0",
+        "yaw": "${-pi/4}"
+    },
+    "lidar_3": {
+        "x": "-0.45",
+        "y": "-0.3",
+        "z": "0.41",
+        "roll": "0.0",
+        "pitch": "0.0",
+        "yaw": "${-3*pi/4}"
+    },
+    "lidar_4": {
+        "x": "-0.45",
+        "y": "0.3",
+        "z": "0.41",
+        "roll": "0.0",
+        "pitch": "0.0",
+        "yaw": "${3*pi/4}"
+    },
+    "camera_1": {
+        "x": "0.0",
+        "y": "0.0",
+        "z": "0.25",
+        "roll": "0.0",
+        "pitch": "${pi/2}",
+        "yaw": "0.0"
+    },
+    "camera_2": {
+        "x": "0.0",
+        "y": "0.0",
+        "z": "0.35",
+        "roll": "0.0",
+        "pitch": "${-pi/2}",
+        "yaw": "0.0"
+    },
+    "camera_3": {
+        "x": "0.0",
+        "y": "-0.343",
+        "z": "0.252",
+        "roll": "0.0",
+        "pitch": "0.0",
+        "yaw": "${-pi/2}"
+    },
+    "camera_4": {
+        "x": "0.0",
+        "y": "0.343",
+        "z": "0.252",
+        "roll": "0.0",
+        "pitch": "0.0",
+        "yaw": "${pi/2}"
+    }
+}
