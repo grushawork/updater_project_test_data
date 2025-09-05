@@ -1,815 +1,169 @@
 {
-    "sections": [
-        "Chassis",
-        "CAN",
-        "DO",
-        "DI",
-        "Safety",
-        "Motor"
-    ],
-    "errors": [],
     "Chassis": [
         {
             "device_name": "chassis_0",
-            "device_data": [
-                {
-                    "variable": "width",
-                    "type": "float",
-                    "value": 0.6,
-                    "rules": {
-                        "min": -100.0,
-                        "max": 100.0,
-                        "default": 0.5
-                    }
-                },
-                {
-                    "variable": "head",
-                    "type": "float",
-                    "value": 0.6,
-                    "rules": {
-                        "min": -100.0,
-                        "max": 100.0,
-                        "default": 0.5
-                    }
-                },
-                {
-                    "variable": "tail",
-                    "type": "float",
-                    "value": 0.6,
-                    "rules": {
-                        "min": -100.0,
-                        "max": 100.0,
-                        "default": 0.5
-                    }
-                },
-                {
-                    "variable": "height",
-                    "type": "float",
-                    "value": 0.6,
-                    "rules": {
-                        "min": -100.0,
-                        "max": 100.0,
-                        "default": 0.5
-                    }
-                },
-                {
-                    "variable": "mode",
-                    "type": "string",
-                    "value": "differential",
-                    "rules": {
-                        "option": [
-                            "differential"
-                        ],
-                        "default": "differential"
-                    }
-                },
-                {
-                    "variable": "action",
-                    "type": "string",
-                    "value": "None",
-                    "rules": {
-                        "option": [
-                            "jack",
-                            "None"
-                        ],
-                        "default": "None"
-                    }
-                },
-                {
-                    "variable": "number_of_wheels",
-                    "type": "int",
-                    "value": 2,
-                    "rules": {
-                        "min": 0,
-                        "max": 100,
-                        "default": 2
-                    }
-                }
-            ]
+            "device_data": {
+                "width": 0.6,
+                "head": 0.6,
+                "tail": 0.6,
+                "height": 0.6,
+                "action": "None",
+                "mode": "differential",
+                "number_of_wheels": 2
+            }
         }
     ],
     "CAN": [
         {
             "device_name": "CAN_Device_0",
-            "device_data": [
-                {
-                    "variable": "enable_device",
-                    "type": "bool",
-                    "value": true,
-                    "rules": {
-                        "default": true
-                    }
-                },
-                {
-                    "variable": "can_port",
-                    "type": "string",
-                    "value": "CAN0",
-                    "rules": {
-                        "option": [
-                            "port0",
-                            "port1"
-                        ],
-                        "default": "port0"
-                    }
-                },
-                {
-                    "variable": "baudrate",
-                    "type": "int",
-                    "value": 500000,
-                    "rules": {
-                        "option": [
-                            125000,
-                            250000,
-                            500000,
-                            1000000
-                        ],
-                        "default": 500000
-                    }
-                }
-            ]
+            "device_data": {
+                "enable_device": true,
+                "can_port": "CAN0",
+                "baudrate": 500000
+            }
         }
     ],
     "DO": [
         {
             "device_name": "DO_Device_0",
-            "device_data": [
-                {
-                    "variable": "enable_device",
-                    "type": "bool",
-                    "value": true,
-                    "rules": {
-                        "default": true
-                    }
-                },
-                {
-                    "variable": "id",
-                    "type": "int",
-                    "value": 0,
-                    "rules": {
-                        "min": 0,
-                        "max": 20,
-                        "default": 0
-                    }
-                }
-            ]
+            "device_data": {
+                "enable_device": true,
+                "id": 0
+            }
         },
         {
             "device_name": "DO_Device_1",
-            "device_data": [
-                {
-                    "variable": "enable_device",
-                    "type": "bool",
-                    "value": true,
-                    "rules": {
-                        "default": true
-                    }
-                },
-                {
-                    "variable": "id",
-                    "type": "int",
-                    "value": 1,
-                    "rules": {
-                        "min": 0,
-                        "max": 20,
-                        "default": 0
-                    }
-                }
-            ]
+            "device_data": {
+                "enable_device": true,
+                "id": 1
+            }
         },
         {
             "device_name": "DO_Device_2",
-            "device_data": [
-                {
-                    "variable": "enable_device",
-                    "type": "bool",
-                    "value": true,
-                    "rules": {
-                        "default": true
-                    }
-                },
-                {
-                    "variable": "id",
-                    "type": "int",
-                    "value": 2,
-                    "rules": {
-                        "min": 0,
-                        "max": 20,
-                        "default": 0
-                    }
-                }
-            ]
+            "device_data": {
+                "enable_device": true,
+                "id": 2
+            }
         },
         {
             "device_name": "DO_Device_3",
-            "device_data": [
-                {
-                    "variable": "enable_device",
-                    "type": "bool",
-                    "value": true,
-                    "rules": {
-                        "default": true
-                    }
-                },
-                {
-                    "variable": "id",
-                    "type": "int",
-                    "value": 3,
-                    "rules": {
-                        "min": 0,
-                        "max": 20,
-                        "default": 0
-                    }
-                }
-            ]
+            "device_data": {
+                "enable_device": true,
+                "id": 3
+            }
         },
         {
             "device_name": "DO_Device_4",
-            "device_data": [
-                {
-                    "variable": "enable_device",
-                    "type": "bool",
-                    "value": true,
-                    "rules": {
-                        "default": true
-                    }
-                },
-                {
-                    "variable": "id",
-                    "type": "int",
-                    "value": 4,
-                    "rules": {
-                        "min": 0,
-                        "max": 20,
-                        "default": 0
-                    }
-                }
-            ]
+            "device_data": {
+                "enable_device": true,
+                "id": 4
+            }
         },
         {
             "device_name": "DO_Device_5",
-            "device_data": [
-                {
-                    "variable": "enable_device",
-                    "type": "bool",
-                    "value": true,
-                    "rules": {
-                        "default": true
-                    }
-                },
-                {
-                    "variable": "id",
-                    "type": "int",
-                    "value": 5,
-                    "rules": {
-                        "min": 0,
-                        "max": 20,
-                        "default": 0
-                    }
-                }
-            ]
+            "device_data": {
+                "enable_device": true,
+                "id": 5
+            }
         }
     ],
     "DI": [
         {
             "device_name": "DI_Device_0",
-            "device_data": [
-                {
-                    "variable": "enable_device",
-                    "type": "bool",
-                    "value": true,
-                    "rules": {
-                        "default": true
-                    }
-                },
-                {
-                    "variable": "id",
-                    "type": "int",
-                    "value": 0,
-                    "rules": {
-                        "min": 0,
-                        "max": 20,
-                        "default": 0
-                    }
-                },
-                {
-                    "variable": "inverse",
-                    "type": "bool",
-                    "value": false,
-                    "rules": {
-                        "default": false
-                    }
-                }
-            ]
-        }
-    ],
-    "Safety": [
-        {
-            "device_name": "Safety_Device_stop_front",
-            "device_data": [
-                {
-                    "variable": "enable_device",
-                    "type": "bool",
-                    "value": true,
-                    "rules": {
-                        "default": true
-                    }
-                },
-                {
-                    "variable": "di_id",
-                    "type": "int",
-                    "value": 0,
-                    "rules": {
-                        "min": 0,
-                        "max": 20,
-                        "default": 0
-                    }
-                },
-                {
-                    "variable": "level",
-                    "type": "string",
-                    "value": "stop",
-                    "rules": {
-                        "option": [
-                            "stop_button",
-                            "block",
-                            "careful",
-                            "caution"
-                        ],
-                        "default": "stop_button"
-                    }
-                },
-                {
-                    "variable": "placement",
-                    "type": "string",
-                    "value": "front",
-                    "rules": {
-                        "option": [
-                            "front",
-                            "back"
-                        ],
-                        "default": "front"
-                    }
-                }
-            ]
-        },
-        {
-            "device_name": "Safety_Device_careful_back",
-            "device_data": [
-                {
-                    "variable": "enable_device",
-                    "type": "bool",
-                    "value": true,
-                    "rules": {
-                        "default": true
-                    }
-                },
-                {
-                    "variable": "di_id",
-                    "type": "int",
-                    "value": 1,
-                    "rules": {
-                        "min": 0,
-                        "max": 20,
-                        "default": 0
-                    }
-                },
-                {
-                    "variable": "level",
-                    "type": "string",
-                    "value": "careful",
-                    "rules": {
-                        "option": [
-                            "stop_button",
-                            "block",
-                            "careful",
-                            "caution"
-                        ],
-                        "default": "stop_button"
-                    }
-                },
-                {
-                    "variable": "placement",
-                    "type": "string",
-                    "value": "back",
-                    "rules": {
-                        "option": [
-                            "front",
-                            "back"
-                        ],
-                        "default": "front"
-                    }
-                }
-            ]
-        },
-        {
-            "device_name": "Safety_Device_caution_front",
-            "device_data": [
-                {
-                    "variable": "enable_device",
-                    "type": "bool",
-                    "value": true,
-                    "rules": {
-                        "default": true
-                    }
-                },
-                {
-                    "variable": "di_id",
-                    "type": "int",
-                    "value": 2,
-                    "rules": {
-                        "min": 0,
-                        "max": 20,
-                        "default": 0
-                    }
-                },
-                {
-                    "variable": "level",
-                    "type": "string",
-                    "value": "caution",
-                    "rules": {
-                        "option": [
-                            "stop_button",
-                            "block",
-                            "careful",
-                            "caution"
-                        ],
-                        "default": "stop_button"
-                    }
-                },
-                {
-                    "variable": "placement",
-                    "type": "string",
-                    "value": "front",
-                    "rules": {
-                        "option": [
-                            "front",
-                            "back"
-                        ],
-                        "default": "front"
-                    }
-                }
-            ]
-        },
-        {
-            "device_name": "Safety_Device_stop_back",
-            "device_data": [
-                {
-                    "variable": "enable_device",
-                    "type": "bool",
-                    "value": true,
-                    "rules": {
-                        "default": true
-                    }
-                },
-                {
-                    "variable": "di_id",
-                    "type": "int",
-                    "value": 3,
-                    "rules": {
-                        "min": 0,
-                        "max": 20,
-                        "default": 0
-                    }
-                },
-                {
-                    "variable": "level",
-                    "type": "string",
-                    "value": "stop",
-                    "rules": {
-                        "option": [
-                            "stop_button",
-                            "block",
-                            "careful",
-                            "caution"
-                        ],
-                        "default": "stop_button"
-                    }
-                },
-                {
-                    "variable": "placement",
-                    "type": "string",
-                    "value": "back",
-                    "rules": {
-                        "option": [
-                            "front",
-                            "back"
-                        ],
-                        "default": "front"
-                    }
-                }
-            ]
-        },
-        {
-            "device_name": "Safety_Device_careful_front",
-            "device_data": [
-                {
-                    "variable": "enable_device",
-                    "type": "bool",
-                    "value": true,
-                    "rules": {
-                        "default": true
-                    }
-                },
-                {
-                    "variable": "di_id",
-                    "type": "int",
-                    "value": 4,
-                    "rules": {
-                        "min": 0,
-                        "max": 20,
-                        "default": 0
-                    }
-                },
-                {
-                    "variable": "level",
-                    "type": "string",
-                    "value": "careful",
-                    "rules": {
-                        "option": [
-                            "stop_button",
-                            "block",
-                            "careful",
-                            "caution"
-                        ],
-                        "default": "stop_button"
-                    }
-                },
-                {
-                    "variable": "placement",
-                    "type": "string",
-                    "value": "front",
-                    "rules": {
-                        "option": [
-                            "front",
-                            "back"
-                        ],
-                        "default": "front"
-                    }
-                }
-            ]
-        },
-        {
-            "device_name": "Safety_Device_caution_back",
-            "device_data": [
-                {
-                    "variable": "enable_device",
-                    "type": "bool",
-                    "value": true,
-                    "rules": {
-                        "default": true
-                    }
-                },
-                {
-                    "variable": "di_id",
-                    "type": "int",
-                    "value": 5,
-                    "rules": {
-                        "min": 0,
-                        "max": 20,
-                        "default": 0
-                    }
-                },
-                {
-                    "variable": "level",
-                    "type": "string",
-                    "value": "caution",
-                    "rules": {
-                        "option": [
-                            "stop_button",
-                            "block",
-                            "careful",
-                            "caution"
-                        ],
-                        "default": "stop_button"
-                    }
-                },
-                {
-                    "variable": "placement",
-                    "type": "string",
-                    "value": "back",
-                    "rules": {
-                        "option": [
-                            "front",
-                            "back"
-                        ],
-                        "default": "front"
-                    }
-                }
-            ]
+            "device_data": {
+                "enable_device": true,
+                "id": 0,
+                "inverse": false
+            }
         }
     ],
     "Motor": [
         {
             "device_name": "Motor_left",
-            "device_data": [
-                {
-                    "variable": "enable_device",
-                    "type": "bool",
-                    "value": true,
-                    "rules": {
-                        "default": true
-                    }
-                },
-                {
-                    "variable": "type",
-                    "type": "string",
-                    "value": "left",
-                    "rules": {
-                        "option": [
-                            "left",
-                            "right",
-                            "lift",
-                            "spin"
-                        ],
-                        "default": "left"
-                    }
-                },
-                {
-                    "variable": "motor_model",
-                    "type": "string",
-                    "value": "default",
-                    "rules": {
-                        "option": [
-                            "default"
-                        ],
-                        "default": "default"
-                    }
-                },
-                {
-                    "variable": "can_id",
-                    "type": "int",
-                    "value": 1,
-                    "rules": {
-                        "min": 1,
-                        "max": 7,
-                        "default": 1
-                    }
-                },
-                {
-                    "variable": "inverse",
-                    "type": "bool",
-                    "value": true,
-                    "rules": {
-                        "default": false
-                    }
-                },
-                {
-                    "variable": "reduction",
-                    "type": "float",
-                    "value": 32.0,
-                    "rules": {
-                        "min": 0.0,
-                        "max": 1000.0,
-                        "default": 32.0
-                    }
-                },
-                {
-                    "variable": "wheel_radius",
-                    "type": "float",
-                    "value": 0.1025,
-                    "rules": {
-                        "min": 0.0,
-                        "max": 100.0,
-                        "default": 0.0
-                    }
-                },
-                {
-                    "variable": "wheel_position_x",
-                    "type": "float",
-                    "value": 0.0,
-                    "rules": {
-                        "min": -100.0,
-                        "max": 100.0,
-                        "default": 0.0
-                    }
-                },
-                {
-                    "variable": "wheel_position_y",
-                    "type": "float",
-                    "value": 0.3025,
-                    "rules": {
-                        "min": -100.0,
-                        "max": 100.0,
-                        "default": 0.0
-                    }
-                },
-                {
-                    "variable": "wheel_orientation_yaw",
-                    "type": "float",
-                    "value": 0.0,
-                    "rules": {
-                        "min": -3.14,
-                        "max": 3.14,
-                        "default": 0.0
-                    }
-                }
-            ]
+            "device_data": {
+                "enable_device": true,
+                "type": "left",
+                "motor_model": "default",
+                "can_id": 1,
+                "inverse": true,
+                "reduction": 32.0,
+                "wheel_radius": 0.1025,
+                "wheel_position_x": 0.0,
+                "wheel_position_y": 0.3025,
+                "wheel_orientation_yaw": 0.0
+            }
         },
         {
             "device_name": "Motor_right",
-            "device_data": [
-                {
-                    "variable": "enable_device",
-                    "type": "bool",
-                    "value": true,
-                    "rules": {
-                        "default": true
-                    }
-                },
-                {
-                    "variable": "type",
-                    "type": "string",
-                    "value": "right",
-                    "rules": {
-                        "option": [
-                            "left",
-                            "right",
-                            "lift",
-                            "spin"
-                        ],
-                        "default": "left"
-                    }
-                },
-                {
-                    "variable": "motor_model",
-                    "type": "string",
-                    "value": "default",
-                    "rules": {
-                        "option": [
-                            "default"
-                        ],
-                        "default": "default"
-                    }
-                },
-                {
-                    "variable": "can_id",
-                    "type": "int",
-                    "value": 2,
-                    "rules": {
-                        "min": 1,
-                        "max": 7,
-                        "default": 1
-                    }
-                },
-                {
-                    "variable": "inverse",
-                    "type": "bool",
-                    "value": true,
-                    "rules": {
-                        "default": false
-                    }
-                },
-                {
-                    "variable": "reduction",
-                    "type": "float",
-                    "value": 32.0,
-                    "rules": {
-                        "min": 0.0,
-                        "max": 1000.0,
-                        "default": 32.0
-                    }
-                },
-                {
-                    "variable": "wheel_radius",
-                    "type": "float",
-                    "value": 0.1025,
-                    "rules": {
-                        "min": 0.0,
-                        "max": 100.0,
-                        "default": 0.0
-                    }
-                },
-                {
-                    "variable": "wheel_position_x",
-                    "type": "float",
-                    "value": 0.0,
-                    "rules": {
-                        "min": -100.0,
-                        "max": 100.0,
-                        "default": 0.0
-                    }
-                },
-                {
-                    "variable": "wheel_position_y",
-                    "type": "float",
-                    "value": -0.3025,
-                    "rules": {
-                        "min": -100.0,
-                        "max": 100.0,
-                        "default": 0.0
-                    }
-                },
-                {
-                    "variable": "wheel_orientation_yaw",
-                    "type": "float",
-                    "value": 0.0,
-                    "rules": {
-                        "min": -3.14,
-                        "max": 3.14,
-                        "default": 0.0
-                    }
-                }
-            ]
+            "device_data": {
+                "enable_device": true,
+                "type": "right",
+                "motor_model": "default",
+                "can_id": 2,
+                "inverse": true,
+                "reduction": 32.0,
+                "wheel_radius": 0.1025,
+                "wheel_position_x": 0.0,
+                "wheel_position_y": -0.3025,
+                "wheel_orientation_yaw": 0.0
+            }
+        }
+    ],
+    "Safety": [
+        {
+            "device_name": "Safety_Device_stop_front",
+            "device_data": {
+                "enable_device": true,
+                "di_id": 0,
+                "level": "stop",
+                "placement": "front"
+            }
+        },
+        {
+            "device_name": "Safety_Device_careful_back",
+            "device_data": {
+                "enable_device": true,
+                "di_id": 1,
+                "level": "careful",
+                "placement": "back"
+            }
+        },
+        {
+            "device_name": "Safety_Device_caution_front",
+            "device_data": {
+                "enable_device": true,
+                "di_id": 2,
+                "level": "caution",
+                "placement": "front"
+            }
+        },
+        {
+            "device_name": "Safety_Device_stop_back",
+            "device_data": {
+                "enable_device": true,
+                "di_id": 3,
+                "level": "stop",
+                "placement": "back"
+            }
+        },
+        {
+            "device_name": "Safety_Device_careful_front",
+            "device_data": {
+                "enable_device": true,
+                "di_id": 4,
+                "level": "careful",
+                "placement": "front"
+            }
+        },
+        {
+            "device_name": "Safety_Device_caution_back",
+            "device_data": {
+                "enable_device": true,
+                "di_id": 5,
+                "level": "caution",
+                "placement": "back"
+            }
         }
     ]
 }
+
